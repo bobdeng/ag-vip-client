@@ -23,4 +23,8 @@ public interface VipClient {
     void deleteFingerPass(DeleteFingerPassForm deleteFingerPassForm);
 
     List<FingerPassVO> listFingerPass(LockForm lockForm);
+
+    String sign(String content);
+
+    LogVO getLogById(long id);
 }

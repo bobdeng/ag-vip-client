@@ -125,4 +125,13 @@ public class VipClientImpl implements VipClient {
         return callRequest("/fingerpass/list", METHOD_POST, lockForm, new TypeReference<BaseResult<List<FingerPassVO>>>() {
         }.getType());
     }
+
+    public String sign(String content) {
+        return this.sign(this.vipConfig.getPriKeyInPem(), content);
+    }
+
+    public LogVO getLogById(long id) {
+        return (LogVO)this.callRequest("/log/get", "POST", new LogForm(id), (new TypeReference<BaseResult<LogVO>>() {
+        }).getType());
+    }
 }
