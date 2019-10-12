@@ -27,4 +27,6 @@ public interface VipClient {
     String sign(String content);
 
     LogVO getLogById(long id);
+
+    List<LogVO> findLog(ListLogForm listLogForm);
 }

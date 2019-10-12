@@ -5,6 +5,9 @@ public class ListLogForm {
     private String lockId;
     private String date;
 
+    public ListLogForm() {
+    }
+
     public ListLogForm(String lockId, String date) {
         this.lockId = lockId;
         this.date = date;

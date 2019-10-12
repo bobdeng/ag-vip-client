@@ -4,6 +4,9 @@ package com.anguokeji.smartlock.vipclient.forms;
 public class LogForm {
     private long id;
 
+    public LogForm() {
+    }
+
     public LogForm(long id) {
         this.id = id;
     }

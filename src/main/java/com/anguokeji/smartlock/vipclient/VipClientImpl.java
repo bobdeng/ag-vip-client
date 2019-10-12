@@ -126,12 +126,18 @@ public class VipClientImpl implements VipClient {
         }.getType());
     }
 
+    @Override
+    public List<LogVO> findLog(ListLogForm listLogForm) {
+        return callRequest("/log/list_by_date", METHOD_POST, listLogForm, new TypeReference<BaseResult<List<LogVO>>>() {
+        }.getType());
+    }
+
     public String sign(String content) {
         return this.sign(this.vipConfig.getPriKeyInPem(), content);
     }
 
     public LogVO getLogById(long id) {
-        return (LogVO)this.callRequest("/log/get", "POST", new LogForm(id), (new TypeReference<BaseResult<LogVO>>() {
+        return (LogVO) this.callRequest("/log/get", "POST", new LogForm(id), (new TypeReference<BaseResult<LogVO>>() {
         }).getType());
     }
 }
