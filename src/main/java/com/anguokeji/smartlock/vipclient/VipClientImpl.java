@@ -140,4 +140,10 @@ public class VipClientImpl implements VipClient {
         return (LogVO) this.callRequest("/log/get", "POST", new LogForm(id), (new TypeReference<BaseResult<LogVO>>() {
         }).getType());
     }
+
+    @Override
+    public void deleteLock(LockForm lockForm) {
+        BaseResult result = callRequest("/lock", METHOD_DELETE, lockForm, new TypeReference<BaseResult<String>>() {
+        }.getType());
+    }
 }

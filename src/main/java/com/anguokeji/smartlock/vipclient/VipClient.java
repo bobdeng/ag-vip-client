@@ -18,6 +18,8 @@ public interface VipClient {
 
     List<GrantVO> listGrant(LockForm lockForm);
 
+    void deleteLock(LockForm lockForm);
+
     FingerPassVO addFingerPass(AddFingerPassForm addFingerPassForm);
 
     void deleteFingerPass(DeleteFingerPassForm deleteFingerPassForm);
