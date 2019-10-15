@@ -20,4 +20,12 @@ public class ListLogForm {
     public void setDate(String date) {
         this.date = date;
     }
+
+    public String getLockId() {
+        return lockId;
+    }
+
+    public String getDate() {
+        return date;
+    }
 }
