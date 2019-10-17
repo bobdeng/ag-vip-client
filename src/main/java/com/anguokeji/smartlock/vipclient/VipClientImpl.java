@@ -143,7 +143,7 @@ public class VipClientImpl implements VipClient {
 
     @Override
     public void deleteLock(LockForm lockForm) {
-        BaseResult result = callRequest("/lock", METHOD_DELETE, lockForm, new TypeReference<BaseResult<String>>() {
+        BaseResult result = callRequest("/lock/", METHOD_DELETE, lockForm, new TypeReference<BaseResult<String>>() {
         }.getType());
     }
 }
