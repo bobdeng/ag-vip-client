@@ -100,6 +100,7 @@ public class VipClientImpl implements VipClient {
         }.getType());
     }
 
+    @Override
     public void batchGrantLockTo(BatchGrantForm grantForm) {
         callRequest("/grant/batch_grant_to", METHOD_PUT, grantForm, new TypeReference<BaseResult<String>>() {
         }.getType());
@@ -116,6 +117,7 @@ public class VipClientImpl implements VipClient {
         }.getType());
     }
 
+    @Override
     public void batchRemoveGrant(BatchRemoveGrantForm removeGrantForm) {
         callRequest("/grant/batch_remove", METHOD_DELETE, removeGrantForm, new TypeReference<BaseResult<String>>() {
         }.getType());
