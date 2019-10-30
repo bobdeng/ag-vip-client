@@ -16,6 +16,7 @@ import java.io.StringReader;
 import java.lang.reflect.Type;
 import java.security.interfaces.RSAPrivateKey;
 import java.util.List;
+import java.util.concurrent.TimeUnit;
 
 public class VipClientImpl implements VipClient {
     private VipConfig vipConfig;
@@ -23,7 +24,9 @@ public class VipClientImpl implements VipClient {
 
     public VipClientImpl(VipConfig vipConfig) {
         this.vipConfig = vipConfig;
-        okHttpClient = new OkHttpClient.Builder().build();
+        okHttpClient = new OkHttpClient.Builder()
+                .readTimeout(100, TimeUnit.SECONDS)
+                .build();
     }
 
     public static final MediaType JSON_MEDIA_TYPE = MediaType.parse("application/json");
