@@ -35,4 +35,6 @@ public interface VipClient {
     LogVO getLogById(long id);
 
     List<LogVO> findLog(ListLogForm listLogForm);
+
+    LockDetailVO getLockDetail(String id);
 }
