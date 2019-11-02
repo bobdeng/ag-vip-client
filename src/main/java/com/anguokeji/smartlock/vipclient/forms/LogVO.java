@@ -9,6 +9,15 @@ public class LogVO {
     private String user;
     private String mobile;
     private long time;
+    private String source;
+
+    public String getSource() {
+        return source;
+    }
+
+    public void setSource(String source) {
+        this.source = source;
+    }
 
     public long getId() {
         return id;
