@@ -4,6 +4,24 @@ public class NBDeviceVO {
     private String deviceId;
     private String model;
     private String platform;
+    private int battery;
+    private int signal;
+
+    public int getBattery() {
+        return battery;
+    }
+
+    public void setBattery(int battery) {
+        this.battery = battery;
+    }
+
+    public int getSignal() {
+        return signal;
+    }
+
+    public void setSignal(int signal) {
+        this.signal = signal;
+    }
 
     public String getDeviceId() {
         return deviceId;
