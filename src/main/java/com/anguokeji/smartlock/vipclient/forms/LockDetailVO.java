@@ -3,6 +3,7 @@ package com.anguokeji.smartlock.vipclient.forms;
 public class LockDetailVO {
     private String id;
     private String mac;
+    private String name;
     private NBDeviceVO nb;
 
     public String getId() {
