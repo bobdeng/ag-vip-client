@@ -3,10 +3,19 @@ package com.anguokeji.smartlock.vipclient.forms;
 
 public class GrantVO {
     private String lockId;
+    private String mobile;
     private String user;
     private int level;
     private long start;
     private long end;
+
+    public String getMobile() {
+        return mobile;
+    }
+
+    public void setMobile(String mobile) {
+        this.mobile = mobile;
+    }
 
     public String getLockId() {
         return lockId;
