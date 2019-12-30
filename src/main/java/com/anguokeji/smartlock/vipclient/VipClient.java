@@ -24,7 +24,7 @@ public interface VipClient {
 
     void batchRemoveGrant(BatchRemoveGrantForm removeGrantForm);
 
-    FingerPassVO addFingerPass(AddFingerPassForm addFingerPassForm);
+    void addFingerPass(AddFingerPassForm addFingerPassForm);
 
     void deleteFingerPass(DeleteFingerPassForm deleteFingerPassForm);
 

@@ -6,7 +6,7 @@
 
     <groupId>com.anguokeji.smartlock</groupId>
     <artifactId>vip-client</artifactId>
-    <version>1.0-SNAPSHOT</version>
+    <version>1.-SNAPSHOT</version>
     <build>
         <plugins>
             <plugin>

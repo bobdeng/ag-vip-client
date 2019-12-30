@@ -2,7 +2,8 @@ package com.anguokeji.smartlock.vipclient.forms;
 
 public class DeleteFingerPassForm {
     private String lockId;
-    private int seq;
+    private String userMobile;
+    private String data;
 
     public String getLockId() {
         return lockId;
@@ -12,11 +13,19 @@ public class DeleteFingerPassForm {
         this.lockId = lockId;
     }
 
-    public int getSeq() {
-        return seq;
+    public String getData() {
+        return data;
     }
 
-    public void setSeq(int seq) {
-        this.seq = seq;
+    public void setData(String data) {
+        this.data = data;
+    }
+
+    public String getUserMobile() {
+        return userMobile;
+    }
+
+    public void setUserMobile(String userMobile) {
+        this.userMobile = userMobile;
     }
 }

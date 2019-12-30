@@ -37,16 +37,7 @@ public class VipClientImpl implements VipClient {
 
     private <T> T callRequest(String url, String method, Object form, Type type) {
 
-        long timestamp = System.currentTimeMillis();
-        String content = JSON.toJSONString(form);
-        String sign = sign(vipConfig.getPriKeyInPem(), timestamp + content);
-        Request request = new Request.Builder()
-                .url(vipConfig.getHost() + url)
-                .header("App-Code", vipConfig.getVipCode())
-                .header("Timestamp", String.valueOf(timestamp))
-                .header("Authorization", sign)
-                .method(method, RequestBody.create(JSON_MEDIA_TYPE, content))
-                .build();
+        Request request = buildRequest(url, method, form);
         try {
             Response response = okHttpClient.newCall(request).execute();
             if (response.isSuccessful()) {
@@ -64,6 +55,35 @@ public class VipClientImpl implements VipClient {
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
+    }
+
+    private <T> T callRequestWithoutBaseResult(String url, String method, Object form, Type type) {
+
+        Request request = buildRequest(url, method, form);
+        try {
+            Response response = okHttpClient.newCall(request).execute();
+            if (response.isSuccessful()) {
+                T result = JSON.parseObject(response.body().string(), type);
+                return result;
+            } else {
+                throw new RuntimeException(response.body().string());
+            }
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    private Request buildRequest(String url, String method, Object form) {
+        long timestamp = System.currentTimeMillis();
+        String content = JSON.toJSONString(form);
+        String sign = sign(vipConfig.getPriKeyInPem(), timestamp + content);
+        return new Request.Builder()
+                .url(vipConfig.getHost() + url)
+                .header("App-Code", vipConfig.getVipCode())
+                .header("Timestamp", String.valueOf(timestamp))
+                .header("Authorization", sign)
+                .method(method, RequestBody.create(JSON_MEDIA_TYPE, content))
+                .build();
     }
 
     private String sign(String priKey, String content) {
@@ -126,13 +146,13 @@ public class VipClientImpl implements VipClient {
         }.getType());
     }
 
-    public FingerPassVO addFingerPass(AddFingerPassForm addFingerPassForm) {
-        return callRequest("/fingerpass/add", METHOD_PUT, addFingerPassForm, new TypeReference<BaseResult<FingerPassVO>>() {
+    public void addFingerPass(AddFingerPassForm addFingerPassForm) {
+        callRequestWithoutBaseResult("/fingerpass/add", METHOD_POST, addFingerPassForm, new TypeReference<String>() {
         }.getType());
     }
 
     public void deleteFingerPass(DeleteFingerPassForm deleteFingerPassForm) {
-        callRequest("/fingerpass/delete", METHOD_DELETE, deleteFingerPassForm, new TypeReference<BaseResult<String>>() {
+        callRequest("/fingerpass/del", METHOD_POST, deleteFingerPassForm, new TypeReference<String>() {
         }.getType());
     }
 
