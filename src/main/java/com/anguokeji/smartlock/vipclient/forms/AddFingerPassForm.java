@@ -3,7 +3,7 @@ package com.anguokeji.smartlock.vipclient.forms;
 public class AddFingerPassForm {
     private String lockId;
     private String userMobile;
-    private String data;
+    private String name;
 
     public String getLockId() {
         return lockId;
@@ -13,12 +13,12 @@ public class AddFingerPassForm {
         this.lockId = lockId;
     }
 
-    public String getData() {
-        return data;
+    public String getName() {
+        return name;
     }
 
-    public void setData(String data) {
-        this.data = data;
+    public void setName(String name) {
+        this.name = name;
     }
 
     public String getUserMobile() {
