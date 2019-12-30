@@ -152,7 +152,7 @@ public class VipClientImpl implements VipClient {
     }
 
     public void deleteFingerPass(DeleteFingerPassForm deleteFingerPassForm) {
-        callRequest("/fingerpass/del", METHOD_POST, deleteFingerPassForm, new TypeReference<String>() {
+        callRequestWithoutBaseResult("/fingerpass/del", METHOD_POST, deleteFingerPassForm, new TypeReference<String>() {
         }.getType());
     }
 
