@@ -28,6 +28,8 @@ public interface VipClient {
 
     void deleteFingerPass(DeleteFingerPassForm deleteFingerPassForm);
 
+    boolean hasNeedSync(LockForm lockForm);
+
     List<FingerPassVO> listFingerPass(LockForm lockForm);
 
     String sign(String content);
