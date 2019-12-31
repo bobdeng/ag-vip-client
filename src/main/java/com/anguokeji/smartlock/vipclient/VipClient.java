@@ -39,4 +39,6 @@ public interface VipClient {
     List<LogVO> findLog(ListLogForm listLogForm);
 
     LockDetailVO getLockDetail(String id);
+
+    String grantToApp(GrantLockToAppForm grantLockToAppForm);
 }

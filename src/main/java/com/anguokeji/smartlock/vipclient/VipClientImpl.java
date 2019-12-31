@@ -191,6 +191,13 @@ public class VipClientImpl implements VipClient {
     }
 
     @Override
+    public String grantToApp(GrantLockToAppForm grantLockToAppForm) {
+        BaseResult<String> result = callRequest("/lock/grant_lock", METHOD_POST, grantLockToAppForm, new TypeReference<BaseResult<String>>() {
+        }.getType());
+        return result.getData();
+    }
+
+    @Override
     public LockDetailVO getLockDetail(String id) {
         return this.callRequest("/lock/get", "POST", new LockForm(id), (new TypeReference<BaseResult<LockDetailVO>>() {
         }).getType());
