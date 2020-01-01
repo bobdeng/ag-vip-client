@@ -186,15 +186,15 @@ public class VipClientImpl implements VipClient {
 
     @Override
     public void deleteLock(LockForm lockForm) {
-        BaseResult result = callRequest("/lock/", METHOD_DELETE, lockForm, new TypeReference<BaseResult<String>>() {
+        callRequest("/lock/", METHOD_DELETE, lockForm, new TypeReference<BaseResult<String>>() {
         }.getType());
     }
 
     @Override
     public String grantToApp(GrantLockToAppForm grantLockToAppForm) {
-        BaseResult<String> result = callRequest("/lock/grant_lock", METHOD_POST, grantLockToAppForm, new TypeReference<BaseResult<String>>() {
+        String result = callRequest("/lock/grant_lock", METHOD_POST, grantLockToAppForm, new TypeReference<BaseResult<String>>() {
         }.getType());
-        return result.getData();
+        return result;
     }
 
     @Override
