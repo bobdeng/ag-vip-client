@@ -171,7 +171,7 @@ public class VipClientImpl implements VipClient {
     }
 
     public List<FingerPassVO> listFingerPass(FingerPassForm lockForm) {
-        return callRequest("/fingerpass/list", METHOD_POST, lockForm, new TypeReference<List<FingerPassVO>>() {
+        return callRequestWithoutBaseResult("/fingerpass/list", METHOD_POST, lockForm, new TypeReference<List<FingerPassVO>>() {
         }.getType());
     }
 
