@@ -32,7 +32,7 @@ public interface VipClient {
 
     boolean hasNeedSync(LockForm lockForm);
 
-    List<FingerPassVO> listFingerPass(LockForm lockForm);
+    List<FingerPassVO> listFingerPass(FingerPassForm lockForm);
 
     String sign(String content);
 
