@@ -28,6 +28,8 @@ public interface VipClient {
 
     void deleteFingerPass(DeleteFingerPassForm deleteFingerPassForm);
 
+    void setFingerPassword(SetPasswordForm setPasswordForm);
+
     boolean hasNeedSync(LockForm lockForm);
 
     List<FingerPassVO> listFingerPass(LockForm lockForm);
