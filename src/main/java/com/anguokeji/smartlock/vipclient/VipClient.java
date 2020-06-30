@@ -30,6 +30,10 @@ public interface VipClient {
 
     void setFingerPassword(SetPasswordForm setPasswordForm);
 
+    void setFingerICCard(SetCardForm setCardForm);
+
+    void setFingerIDCard(SetCardForm setCardForm);
+
     boolean hasNeedSync(LockForm lockForm);
 
     List<FingerPassVO> listFingerPass(FingerPassForm lockForm);
