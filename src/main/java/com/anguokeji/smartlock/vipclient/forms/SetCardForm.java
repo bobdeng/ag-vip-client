@@ -12,4 +12,12 @@ public class SetCardForm {
     public String getCardId() {
         return cardId;
     }
+
+    public SetCardForm(long id, String cardId) {
+        this.id = id;
+        this.cardId = cardId;
+    }
+
+    public SetCardForm() {
+    }
 }
