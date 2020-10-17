@@ -178,6 +178,18 @@ public class VipClientImpl implements VipClient {
     }
 
     @Override
+    public void setFinger(SetTemplateForm setTemplateForm) {
+        callRequestWithoutBaseResult("/fingerpass/set_finger", METHOD_PUT, setTemplateForm, new TypeReference<String>() {
+        }.getType());
+    }
+
+    @Override
+    public void setFace(SetTemplateForm setTemplateForm) {
+        callRequestWithoutBaseResult("/fingerpass/set_face", METHOD_PUT, setTemplateForm, new TypeReference<String>() {
+        }.getType());
+    }
+
+    @Override
     public boolean hasNeedSync(LockForm lockForm) {
         return callRequestWithoutBaseResult("/fingerpass/has_sync", METHOD_POST, lockForm, new TypeReference<Boolean>() {
         }.getType());
