@@ -10,6 +10,15 @@ public class LogVO {
     private String mobile;
     private long time;
     private String source;
+    private String alias;
+
+    public String getAlias() {
+        return alias;
+    }
+
+    public void setAlias(String alias) {
+        this.alias = alias;
+    }
 
     public String getSource() {
         return source;
