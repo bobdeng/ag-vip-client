@@ -9,12 +9,13 @@ import org.bouncycastle.crypto.params.RSAKeyParameters;
 import org.bouncycastle.crypto.signers.RSADigestSigner;
 import org.bouncycastle.util.io.pem.PemObject;
 import org.bouncycastle.util.io.pem.PemReader;
-import sun.security.rsa.RSAPrivateCrtKeyImpl;
 
 import java.io.IOException;
 import java.io.StringReader;
 import java.lang.reflect.Type;
+import java.security.KeyFactory;
 import java.security.interfaces.RSAPrivateKey;
+import java.security.spec.PKCS8EncodedKeySpec;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
 
@@ -90,7 +91,11 @@ public class VipClientImpl implements VipClient {
         try {
             PemReader pemReader = new PemReader(new StringReader(priKey));
             PemObject pemObject = pemReader.readPemObject();
-            RSAPrivateKey rsaPrivateKey = RSAPrivateCrtKeyImpl.newKey(pemObject.getContent());
+            PKCS8EncodedKeySpec spec =
+                    new PKCS8EncodedKeySpec(pemObject.getContent());
+            KeyFactory kf = KeyFactory.getInstance("RSA");
+
+            RSAPrivateKey rsaPrivateKey = (RSAPrivateKey) kf.generatePrivate(spec);
             RSADigestSigner signer = new RSADigestSigner(new SHA512Digest());
             signer.init(true, new RSAKeyParameters(true, rsaPrivateKey.getModulus(), rsaPrivateKey.getPrivateExponent()));
             byte[] data = content.getBytes();
