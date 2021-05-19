@@ -6,6 +6,15 @@ public class NBDeviceVO {
     private String platform;
     private int battery;
     private int signal;
+    private String power;
+
+    public String getPower() {
+        return power;
+    }
+
+    public void setPower(String power) {
+        this.power = power;
+    }
 
     public int getBattery() {
         return battery;
